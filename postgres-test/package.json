@@ -1,0 +1,24 @@
+{
+    "name": "postgres-test",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "npx tsc",
+        "start": "node dist/index.js",
+        "dev": "npx tsc && node dist/index.js"
+    },
+    "keywords": [],
+    "type": "module",
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "@types/node": "^20.14.10",
+        "@types/pg": "^8.11.10",
+        "nodemon": "^3.1.4",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.5.3"
+    },
+    "dependencies": {
+        "pg": "^8.13.1"
+    }
+}
