@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    environment:
+      DB_USER: myuser
+      DB_PASSWORD: mypassword
+      DB_HOST: db
+      DB_NAME: mydb
+
+    volumes:
+      - ./src:/app/src # Sync the src directory
+      - ./public:/app/public # Include other relevant directories
+      - /app/node_modules # Exclude node_modules from syncing
+    ports:
+      - "3000:3000"
+    command: npm run dev
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - "5432:5432"
