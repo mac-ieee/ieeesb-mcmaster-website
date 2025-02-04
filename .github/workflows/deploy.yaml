@@ -40,4 +40,5 @@ jobs:
         with:
             context: ./ieee-website-app
             file: ./dockerfiles/frontend.prod.dockerfile
+            tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             push: true
