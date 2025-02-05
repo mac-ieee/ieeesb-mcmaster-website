@@ -1,31 +1,4 @@
 apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: postgres-pv
-spec:
-  capacity:
-    storage: 1Gi  # Adjust based on your needs
-  volumeMode: Filesystem
-  storageClassName: standard
-  accessModes:
-    - ReadWriteOnce  # Only one node can mount it
-  hostPath:
-    path: "/data/postgres"  # Change this if needed
-    type: DirectoryOrCreate
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: postgres-pvc
-spec:
-  volumeName: postgres-pv
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
-apiVersion: v1
 kind: Service
 metadata:
   name: postgres
