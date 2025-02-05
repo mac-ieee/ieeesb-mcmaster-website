@@ -10,7 +10,7 @@ RUN \
   elif [ -f package-lock.json ]; then npm ci; \
   elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i; \
   # Allow install without lockfile, so example works even without Node.js installed locally
-  else echo "Warning: Lockfile not found. It is recommended to commit lockfiles to version control." && npm install; \
+  else echo "Warning: Lockfile not found. It is recommended to commit lockfiles to version control." && yarn install; \
   fi
 
 COPY . .
