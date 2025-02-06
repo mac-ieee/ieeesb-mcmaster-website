@@ -23,6 +23,9 @@ services:
     build: 
       context: ./ieee-website-app
       dockerfile: ../dockerfiles/frontend.dev.dockerfile
+    volumes:
+      - ./ieee-website-app/src:/app/src
+      - ./ieee-website-app/public:/app/public
     depends_on:
       postgres:
         condition: service_healthy
