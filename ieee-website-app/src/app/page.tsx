@@ -9,6 +9,9 @@ const MCMASTER_LOGO = "/images/mcmaster-logo.png";
 const CC_LOGO = "/images/cc-logo.png";
 const PES_LOGO = "/images/pes-logo.png";
 const EMBS_LOGO = "/images/embs-logo.png";
+const SOLDERING_LOGO = "/images/soldering-logo.png";
+const HARDWARE_RENTAL_LOGO = "/images/hardware-rental-logo.png";
+const DIGIKEY_LOGO = "/images/digikey-logo.png";
 
 const SECTION_BUTTON_STYLE = "border flex-1 flex flex-col rounded-xl p-2 drop-shadow-md bg-background hover:cursor-pointer hover:scale-105 transition-transform duration-300";
 
@@ -113,16 +116,16 @@ function Services() {
 			</div>
 			<div className="md:flex-row flex-col flex md:space-x-4 md:space-y-0 space-y-2">
 				<Link href="/services/soldering" className={SECTION_BUTTON_STYLE}>
-					<img src={CC_LOGO} alt="CC Logo" className="flex-1 border" />
+					<img src={SOLDERING_LOGO} alt="Soldering Logo" className="flex-1 border" />
 					<h3 className="text-xl font-bold text-center">Soldering</h3>
 				</Link>
 				<Link href="/services/hardware-rental" className={SECTION_BUTTON_STYLE}>
-					<img src={PES_LOGO} alt="PES Logo" className="flex-1 border" />
+					<img src={HARDWARE_RENTAL_LOGO} alt="Hardware Rental Logo" className="flex-1 border" />
 					<h3 className="text-xl font-bold text-center">Hardware Rental</h3>
 
 				</Link>
 				<Link href="/services/digikey" className={SECTION_BUTTON_STYLE}>
-					<img src={EMBS_LOGO} alt="EMBS Logo" className="flex-1 border" />
+					<img src={DIGIKEY_LOGO} alt="DigiKey Logo" className="flex-1 border" />
 					<h3 className="text-xl font-bold text-center">DigiKey Ordering</h3>
 
 				</Link>
