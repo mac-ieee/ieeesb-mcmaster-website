@@ -4,6 +4,6 @@ export function useDispatch() {
     return useAppDispatch();
 }
 
-export function useUser() {
+export function useUserState() {
     return useAppSelector((state) => state.user);
 }
