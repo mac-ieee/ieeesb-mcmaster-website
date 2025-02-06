@@ -1,4 +1,7 @@
 import { DiscordIcon, InstagramIcon, LinkedInIcon } from "@/components/icons";
+import { Button } from "@heroui/button";
+import { Input, Textarea } from "@heroui/input";
+import { Form } from "@heroui/form";
 
 const IEEE_LOGO = "/images/ieee-logo.png";
 const MCMASTER_LOGO = "/images/mcmaster-logo.png";
@@ -103,7 +106,7 @@ function Chapters() {
 
 function Services() {
 	return (
-		<section className="flex flex-col items-start gap-4">
+		<section className="flex flex-col w-full gap-4">
 			<div className="flex flex-row">
 				<h2 className="text-2xl text-left font-bold flex-1">Services</h2>
 			</div>
@@ -129,23 +132,72 @@ function Services() {
 
 function ContactUs() {
 	return (
-		<section className="flex flex-col items-center gap-4" id="contact">
+		<section className="flex flex-col w-full gap-4" id="contact">
 			<div className="flex flex-row">
 				<h2 className="text-2xl text-left font-bold flex-1">Contact Us</h2>
 			</div>
-			<div className="flex flex-row space-x-4">
-				<div className={SECTION_BUTTON_STYLE}>
+			<div className="flex flex-row space-x-4  justify-center">
+				<div className="border flex flex-col rounded-xl p-2 drop-shadow-md bg-background">
 					<DiscordIcon />
 				</div>
 
-				<div className={SECTION_BUTTON_STYLE}>
+				<div className="border flex flex-col rounded-xl p-2 drop-shadow-md bg-background">
 					<LinkedInIcon />
 				</div>
 
-				<div className={SECTION_BUTTON_STYLE}>
+				<div className="border flex flex-col rounded-xl p-2 drop-shadow-md bg-background">
 					<InstagramIcon />
 				</div>
+			</div>
+			<div className="flex flex-col">
+				<h2 className="text-2xl text-left font-bold flex-1">or Send Us a Message</h2>
+				<div>
+					<Form
+						className="w-full flex flex-row space-y-4"
+					>
+						<div className="flex flex-col flex-1 gap-4">
+							<div className="flex flex-row gap-4">
 
+								<Input
+									isRequired
+									label="Name"
+									labelPlacement="outside"
+									name="name"
+									placeholder="Enter your name"
+								/>
+
+								<Input
+									isRequired
+									label="Email"
+									labelPlacement="outside"
+									name="email"
+									placeholder="Enter your email"
+									type="email"
+								/>
+							</div>
+
+							<Input
+								isRequired
+								label="Subject"
+								labelPlacement="outside"
+								name="Subject"
+								placeholder="Enter the subject"
+							/>
+
+							<Textarea label="Description" placeholder="Enter your description" />
+
+							<div className="flex gap-4">
+								<Button className="w-full" color="primary" type="submit">
+									Submit
+								</Button>
+								<Button type="reset" variant="bordered">
+									Reset
+								</Button>
+							</div>
+						</div>
+
+					</Form>
+				</div>
 			</div>
 		</section>
 	)
