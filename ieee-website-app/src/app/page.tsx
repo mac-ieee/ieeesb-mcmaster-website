@@ -2,6 +2,7 @@ import { DiscordIcon, InstagramIcon, LinkedInIcon } from "@/components/icons";
 import { Button } from "@heroui/button";
 import { Input, Textarea } from "@heroui/input";
 import { Form } from "@heroui/form";
+import Link from "next/link";
 
 const IEEE_LOGO = "/images/ieee-logo.png";
 const MCMASTER_LOGO = "/images/mcmaster-logo.png";
@@ -9,7 +10,7 @@ const CC_LOGO = "/images/cc-logo.png";
 const PES_LOGO = "/images/pes-logo.png";
 const EMBS_LOGO = "/images/embs-logo.png";
 
-const SECTION_BUTTON_STYLE = "border flex-1 flex flex-col rounded-xl p-2 drop-shadow-md bg-background"
+const SECTION_BUTTON_STYLE = "border flex-1 flex flex-col rounded-xl p-2 drop-shadow-md bg-background hover:cursor-pointer hover:scale-105 transition-transform duration-300";
 
 
 function Header() {
@@ -74,23 +75,23 @@ function Chapters() {
 			<div className="flex flex-row">
 				<h2 className="text-2xl text-left font-bold flex-1">Chapters</h2>
 			</div>
-			<div className="md:flex-row flex-col flex md:space-x-2 md:space-y-0 space-y-2">
-				<div className={SECTION_BUTTON_STYLE}>
+			<div className="md:flex-row flex-col flex md:space-x-4 md:space-y-0 space-y-2">
+				<Link href="/chapters/cc" className={SECTION_BUTTON_STYLE}>
 					<h3 className="text-xl font-bold text-center">Computer Chapter</h3>
 					<img src={CC_LOGO} alt="CC Logo" className="w-full border" />
 					<div>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque justo id ipsum mollis dapibus. Aliquam pretium ex enim, id sagittis quam pulvinar commodo. Etiam convallis vulputate nisl vel tempor. Aliquam ut turpis eu justo ultricies volutpat. Integer a convallis ipsum. Integer id lacus commodo.
 					</div>
 
-				</div>
-				<div className={SECTION_BUTTON_STYLE}>
+				</Link>
+				<Link href="/chapters/pes" className={SECTION_BUTTON_STYLE}>
 					<h3 className="text-xl font-bold text-center">Power and Energy Society</h3>
 					<img src={PES_LOGO} alt="PES Logo" className="w-full border" />
 					<div>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque justo id ipsum mollis dapibus. Aliquam pretium ex enim, id sagittis quam pulvinar commodo. Etiam convallis vulputate nisl vel tempor. Aliquam ut turpis eu justo ultricies volutpat. Integer a convallis ipsum. Integer id lacus commodo.
 					</div>
-				</div>
-				<div className={SECTION_BUTTON_STYLE}>
+				</Link>
+				<Link href="/chapters/embs" className={SECTION_BUTTON_STYLE}>
 					<h3 className="text-xl font-bold text-center">Engineering Medicine and Biology Society</h3>
 					<img src={EMBS_LOGO} alt="EMBS Logo" className="w-full border" />
 
@@ -98,7 +99,7 @@ function Chapters() {
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque justo id ipsum mollis dapibus. Aliquam pretium ex enim, id sagittis quam pulvinar commodo. Etiam convallis vulputate nisl vel tempor. Aliquam ut turpis eu justo ultricies volutpat. Integer a convallis ipsum. Integer id lacus commodo.
 					</div>
 
-				</div>
+				</Link>
 			</div>
 		</section>
 	)
@@ -110,21 +111,21 @@ function Services() {
 			<div className="flex flex-row">
 				<h2 className="text-2xl text-left font-bold flex-1">Services</h2>
 			</div>
-			<div className="md:flex-row flex-col flex md:space-x-2 md:space-y-0 space-y-2">
-				<div className={SECTION_BUTTON_STYLE}>
+			<div className="md:flex-row flex-col flex md:space-x-4 md:space-y-0 space-y-2">
+				<Link href="/services/soldering" className={SECTION_BUTTON_STYLE}>
 					<img src={CC_LOGO} alt="CC Logo" className="flex-1 border" />
 					<h3 className="text-xl font-bold text-center">Soldering</h3>
-				</div>
-				<div className={SECTION_BUTTON_STYLE}>
+				</Link>
+				<Link href="/services/hardware-rental" className={SECTION_BUTTON_STYLE}>
 					<img src={PES_LOGO} alt="PES Logo" className="flex-1 border" />
 					<h3 className="text-xl font-bold text-center">Hardware Rental</h3>
 
-				</div>
-				<div className={SECTION_BUTTON_STYLE}>
+				</Link>
+				<Link href="/services/digikey" className={SECTION_BUTTON_STYLE}>
 					<img src={EMBS_LOGO} alt="EMBS Logo" className="flex-1 border" />
 					<h3 className="text-xl font-bold text-center">DigiKey Ordering</h3>
 
-				</div>
+				</Link>
 			</div>
 		</section>
 	)
@@ -137,17 +138,17 @@ function ContactUs() {
 				<h2 className="text-2xl text-left font-bold flex-1">Contact Us</h2>
 			</div>
 			<div className="flex flex-row space-x-4  justify-center">
-				<div className="border flex flex-col rounded-xl p-2 drop-shadow-md bg-background">
+				<Link href="https://discord.com/invite/5S5pBy46dW" target="_blank" className="border flex flex-col rounded-xl p-2 drop-shadow-md bg-background hover:cursor-pointer hover:scale-105 transition-transform duration-300">
 					<DiscordIcon />
-				</div>
+				</Link>
 
-				<div className="border flex flex-col rounded-xl p-2 drop-shadow-md bg-background">
+				<Link href="https://www.linkedin.com/company/mcmasterieee/" target="_blank" className="border flex flex-col rounded-xl p-2 drop-shadow-md bg-background hover:cursor-pointer hover:scale-105 transition-transform duration-300">
 					<LinkedInIcon />
-				</div>
+				</Link>
 
-				<div className="border flex flex-col rounded-xl p-2 drop-shadow-md bg-background">
+				<Link href="https://www.instagram.com/mcmaster_ieee/" target="_blank" className="border flex flex-col rounded-xl p-2 drop-shadow-md bg-background hover:cursor-pointer hover:scale-105 transition-transform duration-300">
 					<InstagramIcon />
-				</div>
+				</Link>
 			</div>
 			<div className="flex flex-col">
 				<h2 className="text-2xl text-left font-bold flex-1">or Send Us a Message</h2>
