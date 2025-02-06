@@ -2,16 +2,12 @@ import { DiscordIcon, InstagramIcon, LinkedInIcon } from "@/components/icons";
 import { Button } from "@heroui/button";
 import { Input, Textarea } from "@heroui/input";
 import { Form } from "@heroui/form";
+import { siteChapters } from "@/config/site.chapters";
+import { siteServices } from "@/config/site.services";
 import Link from "next/link";
 
 const IEEE_LOGO = "/images/ieee-logo.png";
 const MCMASTER_LOGO = "/images/mcmaster-logo.png";
-const CC_LOGO = "/images/cc-logo.png";
-const PES_LOGO = "/images/pes-logo.png";
-const EMBS_LOGO = "/images/embs-logo.png";
-const SOLDERING_LOGO = "/images/soldering-logo.png";
-const HARDWARE_RENTAL_LOGO = "/images/hardware-rental-logo.png";
-const DIGIKEY_LOGO = "/images/digikey-logo.png";
 
 const SECTION_BUTTON_STYLE = "border flex-1 flex flex-col rounded-xl p-2 drop-shadow-md bg-background hover:cursor-pointer hover:scale-105 transition-transform duration-300";
 
@@ -79,30 +75,17 @@ function Chapters() {
 				<h2 className="text-2xl text-left font-bold flex-1">Chapters</h2>
 			</div>
 			<div className="md:flex-row flex-col flex md:space-x-4 md:space-y-0 space-y-2">
-				<Link href="/chapters/cc" className={SECTION_BUTTON_STYLE}>
-					<h3 className="text-xl font-bold text-center">Computer Chapter</h3>
-					<img src={CC_LOGO} alt="CC Logo" className="w-full border" />
-					<div>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque justo id ipsum mollis dapibus. Aliquam pretium ex enim, id sagittis quam pulvinar commodo. Etiam convallis vulputate nisl vel tempor. Aliquam ut turpis eu justo ultricies volutpat. Integer a convallis ipsum. Integer id lacus commodo.
-					</div>
-
-				</Link>
-				<Link href="/chapters/pes" className={SECTION_BUTTON_STYLE}>
-					<h3 className="text-xl font-bold text-center">Power and Energy Society</h3>
-					<img src={PES_LOGO} alt="PES Logo" className="w-full border" />
-					<div>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque justo id ipsum mollis dapibus. Aliquam pretium ex enim, id sagittis quam pulvinar commodo. Etiam convallis vulputate nisl vel tempor. Aliquam ut turpis eu justo ultricies volutpat. Integer a convallis ipsum. Integer id lacus commodo.
-					</div>
-				</Link>
-				<Link href="/chapters/embs" className={SECTION_BUTTON_STYLE}>
-					<h3 className="text-xl font-bold text-center">Engineering Medicine and Biology Society</h3>
-					<img src={EMBS_LOGO} alt="EMBS Logo" className="w-full border" />
-
-					<div>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque justo id ipsum mollis dapibus. Aliquam pretium ex enim, id sagittis quam pulvinar commodo. Etiam convallis vulputate nisl vel tempor. Aliquam ut turpis eu justo ultricies volutpat. Integer a convallis ipsum. Integer id lacus commodo.
-					</div>
-
-				</Link>
+				{
+					siteChapters.map((chapter, index) => (
+						<Link href={chapter.href} key={index} className={SECTION_BUTTON_STYLE}>
+							<h3 className="text-xl font-bold text-center">{chapter.name}</h3>
+							<img src={chapter.image} alt={chapter.name} className="w-full border" />
+							<div>
+								{chapter.description}
+							</div>
+						</Link>
+					))
+				}
 			</div>
 		</section>
 	)
@@ -115,20 +98,14 @@ function Services() {
 				<h2 className="text-2xl text-left font-bold flex-1">Services</h2>
 			</div>
 			<div className="md:flex-row flex-col flex md:space-x-4 md:space-y-0 space-y-2">
-				<Link href="/services/soldering" className={SECTION_BUTTON_STYLE}>
-					<img src={SOLDERING_LOGO} alt="Soldering Logo" className="flex-1 border" />
-					<h3 className="text-xl font-bold text-center">Soldering</h3>
-				</Link>
-				<Link href="/services/hardware-rental" className={SECTION_BUTTON_STYLE}>
-					<img src={HARDWARE_RENTAL_LOGO} alt="Hardware Rental Logo" className="flex-1 border" />
-					<h3 className="text-xl font-bold text-center">Hardware Rental</h3>
-
-				</Link>
-				<Link href="/services/digikey" className={SECTION_BUTTON_STYLE}>
-					<img src={DIGIKEY_LOGO} alt="DigiKey Logo" className="flex-1 border" />
-					<h3 className="text-xl font-bold text-center">DigiKey Ordering</h3>
-
-				</Link>
+				{
+					siteServices.map((service, index) => (
+						<Link href={service.href} key={index} className={SECTION_BUTTON_STYLE}>
+							<img src={service.image} alt={service.name} className="w-full border" />
+							<h3 className="text-xl font-bold text-center">{service.name}</h3>
+						</Link>
+					))
+				}
 			</div>
 		</section>
 	)
