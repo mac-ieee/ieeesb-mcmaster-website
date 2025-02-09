@@ -1,9 +1,9 @@
 import { useAppDispatch, useAppSelector } from "./store";
 
 export function useDispatch() {
-    return useAppDispatch();
+  return useAppDispatch();
 }
 
 export function useUserState() {
-    return useAppSelector((state) => state.user);
+  return useAppSelector((state) => state.user);
 }
