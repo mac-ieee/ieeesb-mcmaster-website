@@ -3,56 +3,35 @@ version: "3.8"
 services:
   postgres:
     image: postgres
-    # set shared memory limit when using docker-compose
-    # shm_size: 128mb
-    # or set shared memory limit when deploy via swarm stack
-    # volumes:
-    #  - type: tmpfs
-    #    target: /dev/shm
-    #    tmpfs:
-    #      size: 134217728 # 128*2^20 bytes = 128Mb
     environment:
-      POSTGRES_PASSWORD: mysecretpassword
-      # change with env file
-    # ports:
-    #   - '5433:5432'
-
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+      
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -p 5432 -U postgres -d postgres"]
+      test: ["CMD-SHELL", "pg_isready -p 5432 -U myuser -d mydb"]
 
       interval: 1s
       timeout: 1s
       retries: 5
       start_period: 30s
 
-    # networks:
 
-  # test-db:
-  #   build: ./db-testing
-
-  #   depends_on:
-  #     postgres:
-  #       condition: service_healthy
-
-  nodejs-db-test:
+  webapp:
     build: 
-      context: ./nodejs-db-test
-      dockerfile: Dockerfile
-
+      context: ./ieee-website-app
+      dockerfile: ../dockerfiles/frontend.dev.dockerfile
+    volumes:
+      - ./ieee-website-app/src:/app/src
+      - ./ieee-website-app/public:/app/public
     depends_on:
       postgres:
         condition: service_healthy
 
     ports:
       - '3000:3000'
-
-    
-
-  # next-build:
-  #   build:
-  #     context: "./ieee-website-app"
-  #     dockerfile: "../dockerfile/frontend.dev.docker"
-  #     # using dev build
 
 
 

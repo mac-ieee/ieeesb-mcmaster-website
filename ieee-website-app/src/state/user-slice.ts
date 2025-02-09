@@ -1,18 +1,15 @@
-import { User } from "@/models/data/user";
+import { UserState } from "@/models/data/user";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-export const initialState: User = {
-    id: "",
-    name: "",
-    email: "",
+export const initialState: UserState = {
 }
 
 const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        setUser(state, action: PayloadAction<User>) {
+        setUser(state, action: PayloadAction<UserState>) {
             return action.payload;
         },
         clearUser(state) {
