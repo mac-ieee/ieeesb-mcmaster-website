@@ -1,15 +1,14 @@
-
 export interface ChapterInfo {
-    name: string;
-    description: string;
-    image: string;
-    href: string;
+  name: string;
+  description: string;
+  image: string;
+  href: string;
 }
 
 export const siteChapters: ChapterInfo[] = [
-    {
-        name: "Computer Chapter",
-        description: `
+  {
+    name: "Computer Chapter",
+    description: `
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Fusce pellentesque justo id ipsum mollis dapibus.
         Aliquam pretium ex enim, id sagittis quam pulvinar commodo.
@@ -17,12 +16,12 @@ export const siteChapters: ChapterInfo[] = [
         Aliquam ut turpis eu justo ultricies volutpat.
         Integer a convallis ipsum. Integer id lacus commodo.
         `,
-        image: "/images/cc-logo.png",
-        href: "/chapters/cc"
-    },
-    {
-        name: "Power and Energy Society",
-        description: `
+    image: "/images/cc-logo.png",
+    href: "/chapters/cc",
+  },
+  {
+    name: "Power and Energy Society",
+    description: `
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Fusce pellentesque justo id ipsum mollis dapibus.
         Aliquam pretium ex enim, id sagittis quam pulvinar commodo.
@@ -30,12 +29,12 @@ export const siteChapters: ChapterInfo[] = [
         Aliquam ut turpis eu justo ultricies volutpat.
         Integer a convallis ipsum. Integer id lacus commodo.
         `,
-        image: "/images/pes-logo.png",
-        href: "/chapters/pes"
-    },
-    {
-        name: "Engineering in Medicine and Biology",
-        description: `
+    image: "/images/pes-logo.png",
+    href: "/chapters/pes",
+  },
+  {
+    name: "Engineering in Medicine and Biology",
+    description: `
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Fusce pellentesque justo id ipsum mollis dapibus.
         Aliquam pretium ex enim, id sagittis quam pulvinar commodo.
@@ -43,7 +42,7 @@ export const siteChapters: ChapterInfo[] = [
         Aliquam ut turpis eu justo ultricies volutpat.
         Integer a convallis ipsum. Integer id lacus commodo.
         `,
-        image: "/images/embs-logo.png",
-        href: "/chapters/embs"
-    }
+    image: "/images/embs-logo.png",
+    href: "/chapters/embs",
+  },
 ];

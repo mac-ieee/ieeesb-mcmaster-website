@@ -1,10 +1,3 @@
-
-
-
 export default function CCChapter() {
-    return (
-        <section className="flex flex-col items-center gap-4 md:px-20">
-
-        </section>
-    )
+  return <section className="flex flex-col items-center gap-4 md:px-20" />;
 }
