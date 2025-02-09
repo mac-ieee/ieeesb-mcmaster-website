@@ -26,8 +26,8 @@ export const siteConfig = {
     },
     {
       label: "Login",
-      href: "/login"
-    }
+      href: "/login",
+    },
   ],
   navMenuItems: [
     {
