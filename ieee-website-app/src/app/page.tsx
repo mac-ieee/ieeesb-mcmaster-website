@@ -16,9 +16,13 @@ const SECTION_BUTTON_STYLE =
 function Header() {
   return (
     <header className="flex flex-row items-center justify-between w-full">
-      <div className="text-2xl flex-1 font-bold bg-primary-500 text-center p-3 md:py-20 rounded-bl-xl rounded-br-xl">
-        Welcome to the IEEE McMaster Student Branch
+
+      <div className="w-[100vw] bg-sky-500">
+      <div className="text-2xl m-10 font-bold text-white">
+      Welcome to the IEEE McMaster Student Branch
       </div>
+      </div>
+    
     </header>
   );
 }
