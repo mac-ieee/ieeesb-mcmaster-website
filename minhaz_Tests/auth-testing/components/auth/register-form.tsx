@@ -59,7 +59,7 @@ export const RegisterForm = () => {
 
     return (
         <>
-        <div className="p-10 w-[40vw] h-min-[20vh] rounded-2xl bg-white items-center justify-center">
+        <div className="p-10 max-w-[90vw] min-w-[40vw] min-h-[20vh] rounded-2xl bg-white items-center justify-center">
         Create an Account 😄
 
         <div className="">

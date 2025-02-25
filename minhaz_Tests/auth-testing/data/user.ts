@@ -25,7 +25,7 @@ export const getUserById = async (id: string) => {
             }
         });
 
-        return id;
+        return user;
     }catch{
         return null;
     }
