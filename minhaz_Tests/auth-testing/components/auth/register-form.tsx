@@ -41,6 +41,7 @@ export const RegisterForm = () => {
     });
 
     const onSubmit = (values : z.infer<typeof RegisterSchema>) => {
+        console.log(values);
         setError("");setSuccess("");
 
         startTransition(() => {
@@ -49,7 +50,6 @@ export const RegisterForm = () => {
                 setSuccess(data.success);
             });
         }); 
-        register(values);
         //can also do axios.post("/api/login", values).then().catch() something such
 
 
@@ -77,7 +77,7 @@ export const RegisterForm = () => {
                                 <FormControl>
                                     <Input {...field} 
                                     disabled={isPending}
-                                    placeholder="email@example.com" type="emai" />
+                                    placeholder="email@example.com" type="email" />
 
 
                                 </FormControl>
@@ -95,7 +95,7 @@ export const RegisterForm = () => {
                                 <FormControl>
                                     <Input {...field} 
                                     disabled={isPending}
-                                    placeholder="example" type="name" />
+                                    placeholder="example"/>
 
 
                                 </FormControl>
@@ -139,7 +139,7 @@ export const RegisterForm = () => {
                     disabled={isPending}
                     type="submit"
                     className="w-full">
-                        Creat an Account
+                        Create an Account
                         
                     </Button>
 
