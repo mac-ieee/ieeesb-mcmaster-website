@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { login } from "@/actions/login";
+import {useTheme} from "next-themes";
 
 import { LoginSchema } from "@/schemas";
 import {
@@ -29,6 +30,7 @@ export const LoginForm = () => {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
+
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -36,6 +38,8 @@ export const LoginForm = () => {
       password: "",
     },
   });
+
+  const {theme} = useTheme();
 
   const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
     setError("");
@@ -52,8 +56,12 @@ export const LoginForm = () => {
     });
   };
 
+  function clsx(...classes: (string | undefined)[]): string {
+    return classes.filter(Boolean).join(' ');
+  }
   return (
-    <div className="p-10 min-w-[40vw] min-h-[20vh] rounded-2xl bg-white items-center justify-center">
+    <div className={clsx("p-10 min-w-[40vw] min-h-[20vh] rounded-2xl items-center justify-center",theme === "dark" ? "bg-white text-black" : "bg-neutral-700 text-white")}
+    >
       <h2>Login Form</h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -92,7 +100,7 @@ export const LoginForm = () => {
 
           <Link href="/auth/register" className="text-blue-500">Not a User?</Link>
 
-          <Button disabled={isPending} type="submit" className="w-full">Login</Button>
+          <Button disabled={isPending} type="submit" className="w-full bg-blue-300">Login</Button>
         </form>
       </Form>
       <Social />

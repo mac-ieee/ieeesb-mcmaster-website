@@ -5,6 +5,7 @@ import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import { z } from "zod";
 import {register} from "@/actions/register";
+import {useTheme} from "next-themes";
 
 import {RegisterSchema} from "@/schemas";
 import { Form,
@@ -53,13 +54,19 @@ export const RegisterForm = () => {
         //can also do axios.post("/api/login", values).then().catch() something such
 
 
+
     }
+
+
+    function clsx(...classes: (string | undefined)[]): string {
+        return classes.filter(Boolean).join(' ');
+      }
 
 
 
     return (
         <>
-        <div className="p-10 max-w-[90vw] min-w-[40vw] min-h-[20vh] rounded-2xl bg-white items-center justify-center">
+        <div className="p-10 max-w-[90vw] min-w-[40vw] min-h-[20vh] rounded-2xl bg-neutral-700 light:bg-black dark:bg-white text-white dark:text-black items-center justify-center">
         Create an Account 😄
 
         <div className="">

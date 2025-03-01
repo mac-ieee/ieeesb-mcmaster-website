@@ -1,7 +1,10 @@
 // these are public routes
 
 export const publicRoutes = [
-    "/"
+    "/",
+    "/chapters",
+    "/services",
+    "/#contact",
 ]
 
 export const authRoutes = [
