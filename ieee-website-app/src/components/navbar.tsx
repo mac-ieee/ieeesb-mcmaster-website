@@ -1,5 +1,4 @@
-"use client";
-
+"use server";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -13,18 +12,25 @@ import { Link } from "@heroui/link";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-import { usePathname } from "next/navigation";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { LogoDark, LogoLight } from "@/components/icons";
-import { useUserState } from "@/state/hooks";
+import { auth } from "@/config/auth";
+import { headers } from "next/headers"
 
-export const Navbar = () => {
-  const pathname = usePathname();
-  const { user } = useUserState();
+export async function Navbar() {
+  const headersList = await headers()
 
-  const navItems = user ? siteConfig.navMenuItems : siteConfig.navItems;
+
+  const domain = headersList.get('host') || "";
+  const fullUrl = headersList.get('referer') || "";
+  const [, pathname] = fullUrl.match(new RegExp(`https?:\/\/${domain}(.*)`)) || [];
+  console.log(pathname)
+  const session = await auth();
+
+  const navItems = session ? siteConfig.navMenuItems : siteConfig.navItems;
+
   const siteIndex = navItems
     .map((value, index) => {
       return {

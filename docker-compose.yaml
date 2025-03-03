@@ -9,15 +9,8 @@ services:
       POSTGRES_PASSWORD: mypassword
     volumes:
       - ./data/db:/var/lib/postgresql/data
-      
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -p 5432 -U myuser -d mydb"]
-
-      interval: 1s
-      timeout: 1s
-      retries: 5
-      start_period: 30s
-
+    ports:
+      - 5432:5432
 
   webapp:
     build: 
@@ -26,10 +19,9 @@ services:
     volumes:
       - ./ieee-website-app/src:/app/src
       - ./ieee-website-app/public:/app/public
-    depends_on:
-      postgres:
-        condition: service_healthy
-
+    environment:
+      DATABASE_URL: "postgresql://myuser:mypassword@postgres:5432/mydb?schema=public"
+      AUTH_SECRET: "JGIcRxLUOxcAqHe1NkaJJC8fW9gjj5IlvKNxpd6KFUw=" # Added by `npx auth`. Read more: https://cli.authjs.dev
     ports:
       - '3000:3000'
 
