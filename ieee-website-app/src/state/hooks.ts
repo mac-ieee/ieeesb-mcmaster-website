@@ -1,9 +1,6 @@
-import { useAppDispatch, useAppSelector } from "./store";
+import { useAppDispatch } from "./store";
 
 export function useDispatch() {
   return useAppDispatch();
 }
 
-export function useUserState() {
-  return useAppSelector((state) => state.user);
-}

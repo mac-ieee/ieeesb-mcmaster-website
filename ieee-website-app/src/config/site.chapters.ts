@@ -3,6 +3,7 @@ export interface ChapterInfo {
   description: string;
   image: string;
   href: string;
+  route: string;
 }
 
 export const siteChapters: ChapterInfo[] = [
@@ -18,6 +19,7 @@ export const siteChapters: ChapterInfo[] = [
         `,
     image: "/images/cc-logo.png",
     href: "/chapters/cc",
+    route: "cc"
   },
   {
     name: "Power and Energy Society",
@@ -31,6 +33,7 @@ export const siteChapters: ChapterInfo[] = [
         `,
     image: "/images/pes-logo.png",
     href: "/chapters/pes",
+    route: "pes"
   },
   {
     name: "Engineering in Medicine and Biology",
@@ -44,5 +47,14 @@ export const siteChapters: ChapterInfo[] = [
         `,
     image: "/images/embs-logo.png",
     href: "/chapters/embs",
+    route: "embs"
   },
 ];
+
+export function getChapterInfoByName(name: string): ChapterInfo | undefined {
+  return siteChapters.find((chapter) => chapter.name === name);
+}
+
+export function getChapterInfoByRoute(route: string): ChapterInfo | undefined {
+  return siteChapters.find((chapter) => chapter.route === route);
+}
