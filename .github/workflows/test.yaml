@@ -1,0 +1,28 @@
+name: Create and publish a Docker image
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18 # Adjust to match your project's Node.js version
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: cd ieee-website-app && npm ci
+
+      - name: Run linter
+        run: cd ieee-website-app && npm run lint
