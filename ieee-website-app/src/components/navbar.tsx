@@ -24,11 +24,8 @@ export async function Navbar() {
 
 
   const domain = headersList.get('host') || "";
-  console.log("Domain: " + domain);
   const fullUrl = headersList.get('referer') || `http://${domain}/`;
-  console.log("Full URL: " + fullUrl);
   const [, pathname] = fullUrl.match(new RegExp(`https?:\/\/${domain}(.*)`)) || [];
-  console.log("Pathname: " + pathname);
   const session = await auth();
 
   const navItems = session ? siteConfig.navMenuItems : siteConfig.navItems;
