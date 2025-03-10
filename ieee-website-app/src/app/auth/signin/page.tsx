@@ -112,7 +112,7 @@ export default async function SignInPage(props: {
             <CardHeader className="flex gap-3">
                 <div className="flex flex-col">
                     <p className="text-lg font-bold">Sign In</p>
-                    <p className="text-small text-default-500"><Link href="/auth/signup" className="text-small">Sign Up</Link> if you do not have an account</p>
+                    <p className="text-small text-default-500"><Link href="/api/auth/signup" className="text-small">Sign Up</Link> if you do not have an account</p>
                 </div>
             </CardHeader>
             <Divider />
