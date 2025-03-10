@@ -26,7 +26,7 @@ export const siteConfig = {
     },
     {
       label: "Login",
-      href: "/login",
+      href: "/api/auth/signin",
     },
   ],
   navMenuItems: [
@@ -60,7 +60,7 @@ export const siteConfig = {
     },
     {
       label: "Logout",
-      href: "/logout",
+      href: "/api/auth/signout",
     },
   ],
 };

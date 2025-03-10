@@ -1,10 +1,13 @@
 
-import { Card, CardHeader, CardBody, CardFooter } from '@heroui/card'
+import { Card, CardHeader } from '@heroui/card'
 import { Divider } from '@heroui/divider'
 import { Link } from '@heroui/link'
 import { providerMap, signIn } from '@/config/auth'
 import { redirect } from "next/navigation"
 import { AuthError } from 'next-auth'
+import { Button } from "@heroui/button";
+import { Input } from "@heroui/input";
+import { Form } from "@heroui/form";
 
 function ErrorSection({ errors }: { errors: string[] }) {
     if (errors.length > 0) {
@@ -26,7 +29,7 @@ function ErrorSection({ errors }: { errors: string[] }) {
 
 function ProviderSection({ provider, callbackUrl }: { provider: { id: string, name: string }, callbackUrl?: string }) {
     return (
-        <form
+        <Form
             action={async () => {
                 "use server"
                 try {
@@ -49,16 +52,16 @@ function ProviderSection({ provider, callbackUrl }: { provider: { id: string, na
                 }
             }}
         >
-            <button type="submit">
-                <span>Sign in with {provider.name}</span>
-            </button>
-        </form>
+            <Button type="submit" className="w-full ">
+                <span>Sign in with {provider.name}  </span>
+            </Button>
+        </Form>
     )
 }
 
 function CredentialsSection() {
     return (
-        <form
+        <Form
             action={async (formData) => {
                 "use server"
                 try {
@@ -71,16 +74,28 @@ function CredentialsSection() {
                 }
             }}
         >
-            <label htmlFor="email">
-                Email
-                <input name="email" id="email" />
-            </label>
-            <label htmlFor="password">
-                Password
-                <input name="password" id="password" />
-            </label>
-            <input type="submit" value="Sign In" />
-        </form>
+            <Input
+                name="email"
+                id="email"
+                label="Email"
+                labelPlacement="outside"
+                placeholder="Enter your email"
+                type="email"
+                isRequired
+            />
+            <Input
+                name="password"
+                id="password"
+                label="Password"
+                labelPlacement="outside"
+                type="password"
+                placeholder="Enter your password"
+                isRequired
+            />
+            <div className="flex flex-row w-full gap-4">
+                <Button className="w-full flex-1" color="primary" type="submit">Sign in</Button>
+            </div>
+        </Form>
     )
 }
 
@@ -91,9 +106,9 @@ export default async function SignInPage(props: {
     const errors = errorsParams ? (Array.isArray(errorsParams) ? errorsParams : [errorsParams]) : [];
     const callbackUrl = (await props.searchParams).callbackUrl
 
-    return (<div className="flex flex-col items-center p-10 h-full">
+    return (<div className="flex flex-col items-center md:p-10 p-5 h-full">
 
-        <Card className="flex-1">
+        <Card className="flex-1 md:min-w-[400px]">
             <CardHeader className="flex gap-3">
                 <div className="flex flex-col">
                     <p className="text-lg font-bold">Sign In</p>
@@ -104,12 +119,17 @@ export default async function SignInPage(props: {
 
             <ErrorSection errors={errors} />
 
-            <CardBody>
+            <div className="p-4">
                 <CredentialsSection />
+            </div>
+
+            <Divider />
+
+            <div className="p-4">
                 {Object.values(providerMap).map((provider) => (
                     <ProviderSection key={provider.id} provider={provider} callbackUrl={callbackUrl} />
                 ))}
-            </CardBody>
+            </div>
 
         </Card>
 

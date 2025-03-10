@@ -25,6 +25,7 @@ const providers = [
             }
         },
     }),
+    Github
 ]
 
 export const { handlers, signIn, signOut, auth } = NextAuth({

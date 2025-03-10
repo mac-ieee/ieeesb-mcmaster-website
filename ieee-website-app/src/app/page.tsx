@@ -17,12 +17,12 @@ function Header() {
   return (
     <header className="flex flex-row items-center justify-between w-full">
 
-      <div className="w-[100vw] bg-sky-500">
-      <div className="text-2xl m-10 font-bold text-white">
-      Welcome to the IEEE McMaster Student Branch
+      <div className="w-[100vw] bg-sky-500 rounded">
+        <div className="text-2xl m-10 font-bold text-white">
+          Welcome to the IEEE McMaster Student Branch
+        </div>
       </div>
-      </div>
-    
+
     </header>
   );
 }
