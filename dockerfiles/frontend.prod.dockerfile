@@ -15,6 +15,8 @@ RUN \
 
 COPY . .
 
+RUN prisma generate
+
 # Environment variables must be present at build time
 # https://github.com/vercel/next.js/discussions/14030
 ARG ENV_VARIABLE

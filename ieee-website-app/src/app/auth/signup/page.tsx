@@ -7,6 +7,8 @@ import { AuthError } from 'next-auth'
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
 import { Form } from "@heroui/form";
+import { createUserCredentials } from '@/models/api/credentials'
+import { signIn } from '@/config/auth'
 
 function ErrorSection({ errors }: { errors: string[] }) {
     if (errors.length > 0) {
@@ -32,8 +34,11 @@ function CredentialsSection({ callbackUrl }: { callbackUrl?: string }) {
             action={async (formData) => {
                 "use server"
                 try {
-                    // await signIn("credentials", formData)
-                    // TODO: Implement sign up with credentials
+                    const name = formData.get("name") as string
+                    const email = formData.get("email") as string
+                    const password = formData.get("password") as string
+                    await createUserCredentials(name, email, password)
+                    await signIn("credentials", formData)
                 } catch (error) {
                     if (error instanceof AuthError) {
                         return redirect(`/auth/signup?errors=${error.type}&callbackUrl=${callbackUrl}`)
@@ -42,6 +47,16 @@ function CredentialsSection({ callbackUrl }: { callbackUrl?: string }) {
                 }
             }}
         >
+
+            <Input
+                name="name"
+                id="name"
+                label="Name"
+                labelPlacement="outside"
+                placeholder="Enter name"
+                type="name"
+                isRequired
+            />
             <Input
                 name="email"
                 id="email"
