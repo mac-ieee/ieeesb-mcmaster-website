@@ -3,7 +3,6 @@ import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
 import Image from "next/image";
 import { prisma, Prisma } from "@/models/prisma";
-import { truncate } from "fs";
 
 function Header({ name }: { name: string }) {
   return (
@@ -13,18 +12,25 @@ function Header({ name }: { name: string }) {
   );
 }
 
-async function MemberDetails({ member }: { member: Prisma.StudentGetPayload<{}> }) {
-  const userRole = await prisma.studentRole.findFirst({
-    where: { student_id: member.id },
-  });
-  const role = await prisma.role.findFirst({
-    where: { id: userRole?.role_id },
-  });
+type ChapterMember = {
+  name: string;
+  StudentRole: {
+    Role: {
+      name: string;
+      id: bigint;
+      access: string;
+    };
+  }[];
+  id: bigint;
+  email: string;
+  graduation_year: Date | null;
+};
 
+async function MemberDetails({ member }: { member: ChapterMember }) {
 
   return (<section className="border flex-1 flex flex-col rounded-xl p-2 drop-shadow-md bg-background hover:cursor-pointer hover:scale-105 transition-transform duration-300">
     <h2 className="text-xl flex-1 font-bold py-3">{member.name}</h2>
-    <p className="text-md">{role?.name}</p>
+    <p className="text-md">{member.StudentRole[0].Role.name}</p>
   </section>);
 }
 
@@ -40,19 +46,22 @@ async function getStudentsByChapter(chapterName: string) {
       name: true,
       email: true,
       graduation_year: true,
-      ChapterMember: {
+      StudentRole: {
         select: {
-          Chapter: true,
-        },
-        where: {
+          Role: true
+        }
+      }
+    },
+    where: {
+      ChapterMember: {
+        some: {
           chapter_id: chapter.id
         }
-      },
-      StudentRole: true
-    },
+      }
+    }
   })
 
-  return students.filter((student) => student.ChapterMember.length > 0);
+  return students;
 }
 
 export default async function Page({
@@ -78,10 +87,6 @@ export default async function Page({
   }
 
   const students = await getStudentsByChapter(name);
-
-  for (const student of students) {
-    console.log(student);
-  }
 
   return (<section className="flex flex-col items-center gap-4 md:px-20">
     <Header name={chapter.name} />
