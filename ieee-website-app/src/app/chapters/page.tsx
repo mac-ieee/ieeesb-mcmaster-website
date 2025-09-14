@@ -1,5 +1,6 @@
 import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
+import Image from "next/image";
 
 import { ChapterInfo, siteChapters } from "@/config/site.chapters";
 
@@ -17,7 +18,13 @@ function ChapterDetails({ chapter }: { chapter: ChapterInfo }) {
       <h2 className="text-xl flex-1 font-bold py-3">{chapter.name}</h2>
 
       <div className="w-full flex flex-row">
-        <img alt={chapter.name} className="flex-1 border" src={chapter.image} />
+        <Image
+          alt={chapter.name}
+          className="flex-1 border"
+          src={chapter.image}
+          width={600}
+          height={200}
+        />
       </div>
 
       <div>{chapter.description}</div>

@@ -18,11 +18,17 @@ model BlogPost {
 }
 
 model Chapter {
-  id            BigInt          @id @default(autoincrement())
-  name          String          @db.VarChar(255)
-  BlogPost      BlogPost[]
-  ChapterMember ChapterMember[]
-  Event         Event[]
+  id               BigInt          @id @default(autoincrement())
+  name             String          @db.VarChar(255)
+  short_name       String          @db.VarChar(100)
+  description      String          @db.VarChar(255)
+  long_description String
+  image            String          @db.VarChar(255)
+  BlogPost         BlogPost[]
+  ChapterMember    ChapterMember[]
+  Event            Event[]
+
+  @@index(fields: [short_name])
 }
 
 model ChapterMember {
@@ -48,6 +54,8 @@ model Role {
   access      String        @db.VarChar(255)
   name        String        @db.VarChar(255)
   StudentRole StudentRole[]
+
+  @@index(fields: [access, name])
 }
 
 model Student {
@@ -58,6 +66,8 @@ model Student {
   BlogPost        BlogPost[]
   ChapterMember   ChapterMember[]
   StudentRole     StudentRole[]
+
+  @@index(fields: [email])
 }
 
 model StudentRole {
