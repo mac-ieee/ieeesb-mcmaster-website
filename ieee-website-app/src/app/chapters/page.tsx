@@ -2,7 +2,7 @@ import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
 import Image from "next/image";
 
-import { ChapterInfo, siteChapters } from "@/config/site.chapters";
+import { ChapterInfo, getSiteChapters } from "@/config/site.chapters";
 
 function Header() {
   return (
@@ -44,7 +44,9 @@ function ChapterDetails({ chapter }: { chapter: ChapterInfo }) {
   );
 }
 
-export default function Chapters() {
+export default async function Chapters() {
+  const siteChapters = await getSiteChapters();
+
   return (
     <section className="flex flex-col gap-4 md:px-20">
       <Header />

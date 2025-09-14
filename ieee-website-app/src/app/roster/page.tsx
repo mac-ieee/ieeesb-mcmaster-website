@@ -1,6 +1,4 @@
-import { Prisma, PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { Prisma, prisma } from "@/models/prisma";
 
 function Header() {
     return (
@@ -19,12 +17,11 @@ async function MemberDetails({ member }: { member: Prisma.StudentGetPayload<{}> 
     });
 
 
-    return (<section className="flex flex-col gap-4">
+    return (<section className="border flex-1 flex flex-col rounded-xl p-2 drop-shadow-md bg-background hover:cursor-pointer hover:scale-105 transition-transform duration-300">
         <h2 className="text-xl flex-1 font-bold py-3">{member.name}</h2>
         <p className="text-md">{role?.name}</p>
     </section>);
 }
-
 
 export default async function Page() {
     const members = await prisma.student.findMany();
@@ -32,8 +29,10 @@ export default async function Page() {
     return (
         <section className="flex flex-col gap-4 md:px-20">
             <Header />
-            {members.map((member, index) => (
-                <MemberDetails key={index} member={member} />
-            ))}
+            <div className="md:flex-row flex-col flex md:space-x-4 md:space-y-0 space-y-2">
+                {members.map((member, index) => (
+                    <MemberDetails key={index} member={member} />
+                ))}
+            </div>
         </section>);
 }

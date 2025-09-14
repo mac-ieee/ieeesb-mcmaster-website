@@ -3,7 +3,7 @@ import { Input, Textarea } from "@heroui/input";
 import { Form } from "@heroui/form";
 import Link from "next/link";
 
-import { siteChapters } from "@/config/site.chapters";
+import { getSiteChapters } from "@/config/site.chapters";
 import { siteServices } from "@/config/site.services";
 import { DiscordIcon, InstagramIcon, LinkedInIcon } from "@/components/icons";
 
@@ -102,7 +102,9 @@ function Activities() {
   );
 }
 
-function Chapters() {
+async function Chapters() {
+  const siteChapters = await getSiteChapters();
+
   return (
     <section className="flex flex-col items-start gap-4">
       <div className="flex flex-row">
@@ -241,7 +243,7 @@ function ContactUs() {
   );
 }
 
-export default function Home() {
+export default async function Home() {
   return (
     <section className="flex flex-col items-center gap-4 md:px-20">
       <Header />
