@@ -8,7 +8,7 @@ datasource db {
 }
 
 model BlogPost {
-  id          BigInt  @id
+  id          BigInt  @id @default(autoincrement())
   title       String  @db.VarChar(255)
   description String
   authored_by BigInt
@@ -18,7 +18,7 @@ model BlogPost {
 }
 
 model Chapter {
-  id            BigInt          @id
+  id            BigInt          @id @default(autoincrement())
   name          String          @db.VarChar(255)
   BlogPost      BlogPost[]
   ChapterMember ChapterMember[]
@@ -26,7 +26,7 @@ model Chapter {
 }
 
 model ChapterMember {
-  id         BigInt  @id
+  id         BigInt  @id @default(autoincrement())
   student_id BigInt
   chapter_id BigInt
   Chapter    Chapter @relation(fields: [chapter_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "chaptermember_chapter_id_foreign")
@@ -34,7 +34,7 @@ model ChapterMember {
 }
 
 model Event {
-  id          BigInt   @id
+  id          BigInt   @id @default(autoincrement())
   name        String   @db.VarChar(255)
   description String
   date        DateTime @db.Date
@@ -44,14 +44,14 @@ model Event {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model Role {
-  id          BigInt        @id
+  id          BigInt        @id @default(autoincrement())
   access      String        @db.VarChar(255)
   name        String        @db.VarChar(255)
   StudentRole StudentRole[]
 }
 
 model Student {
-  id              BigInt          @id
+  id              BigInt          @id @default(autoincrement())
   name            String          @db.VarChar(255)
   email           String          @db.VarChar(255)
   graduation_year DateTime?       @db.Date
@@ -61,7 +61,7 @@ model Student {
 }
 
 model StudentRole {
-  id         BigInt   @id
+  id         BigInt   @id @default(autoincrement())
   student_id BigInt
   role_id    BigInt
   assigned   DateTime @db.Date
