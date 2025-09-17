@@ -62,6 +62,11 @@ model Student {
   id              BigInt          @id @default(autoincrement())
   name            String          @db.VarChar(255)
   email           String          @db.VarChar(255)
+  description     String
+  major           String          @db.VarChar(255)
+  minor           String?         @db.VarChar(255)
+  profile_picture String?         @db.VarChar(255)
+  entrance_year   DateTime        @db.Date
   graduation_year DateTime?       @db.Date
   BlogPost        BlogPost[]
   ChapterMember   ChapterMember[]

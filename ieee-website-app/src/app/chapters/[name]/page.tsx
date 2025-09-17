@@ -2,7 +2,8 @@ import { getChapterInfo } from "@/config/site.chapters";
 import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
 import Image from "next/image";
-import { prisma, Prisma } from "@/models/prisma";
+import { MemberDetails } from "@/components/member-details";
+import { getStudentsByChapter } from "@/models/api/students";
 
 function Header({ name }: { name: string }) {
   return (
@@ -10,58 +11,6 @@ function Header({ name }: { name: string }) {
       <h1 className="text-2xl flex-1 font-bold py-3">{name}</h1>
     </header>
   );
-}
-
-type ChapterMember = {
-  name: string;
-  StudentRole: {
-    Role: {
-      name: string;
-      id: bigint;
-      access: string;
-    };
-  }[];
-  id: bigint;
-  email: string;
-  graduation_year: Date | null;
-};
-
-async function MemberDetails({ member }: { member: ChapterMember }) {
-
-  return (<section className="border flex-1 flex flex-col rounded-xl p-2 drop-shadow-md bg-background hover:cursor-pointer hover:scale-105 transition-transform duration-300">
-    <h2 className="text-xl flex-1 font-bold py-3">{member.name}</h2>
-    <p className="text-md">{member.StudentRole[0].Role.name}</p>
-  </section>);
-}
-
-async function getStudentsByChapter(chapterName: string) {
-  const chapter = await prisma.chapter.findFirst({
-    where: { short_name: chapterName },
-  });
-  if (!chapter) return [];
-
-  const students = await prisma.student.findMany({
-    select: {
-      id: true,
-      name: true,
-      email: true,
-      graduation_year: true,
-      StudentRole: {
-        select: {
-          Role: true
-        }
-      }
-    },
-    where: {
-      ChapterMember: {
-        some: {
-          chapter_id: chapter.id
-        }
-      }
-    }
-  })
-
-  return students;
 }
 
 export default async function Page({

@@ -104,7 +104,10 @@ export async function createStudents(): Promise<Prisma.StudentCreateInput[]> {
                         }
                     ]
                 }
-            }
+            },
+            description: "The official administrator account for McMaster IEEE.",
+            major: "PhD. in IEEE Engineering",
+            entrance_year: new Date(2025, 8, 1)
         },
         {
             name: "Some Computer Enthusiast",
@@ -119,7 +122,10 @@ export async function createStudents(): Promise<Prisma.StudentCreateInput[]> {
                 create: {
                     chapter_id: await getChapterIdByShortName(COMPUTER)
                 }
-            }
+            },
+            description: "A passionate computer engineering.",
+            major: "B.Eng. in Computer Engineering",
+            entrance_year: new Date(2025, 8, 1)
         },
         {
             name: "Some Electrical Enthusiast",
@@ -134,7 +140,10 @@ export async function createStudents(): Promise<Prisma.StudentCreateInput[]> {
                 create: {
                     chapter_id: await getChapterIdByShortName(PES)
                 }
-            }
+            },
+            description: "A passionate electrical engineering.",
+            major: "B.Eng. in Electrical Engineering",
+            entrance_year: new Date(2025, 8, 1)
         },
         {
             name: "Some Bio Enthusiast",
@@ -149,7 +158,10 @@ export async function createStudents(): Promise<Prisma.StudentCreateInput[]> {
                 create: {
                     chapter_id: await getChapterIdByShortName(EMBS)
                 }
-            }
+            },
+            description: "A passionate biomedical and computer engineering.",
+            major: "iBioMed in Computer Engineering",
+            entrance_year: new Date(2025, 8, 1)
         }
     ];
 }
