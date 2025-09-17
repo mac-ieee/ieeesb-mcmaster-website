@@ -1,4 +1,4 @@
-import { MemberDetails } from "@/components/member-details";
+import Roster from "@/components/roster";
 import { getAllStudents } from "@/models/api/students";
 
 function Header() {
@@ -16,9 +16,7 @@ export default async function Page() {
         <section className="flex flex-col gap-4 md:px-20">
             <Header />
             <div className="md:flex-row flex-col flex md:space-x-4 md:space-y-0 space-y-2">
-                {members.map((member, index) => (
-                    <MemberDetails key={index} member={member} />
-                ))}
+                <Roster members={members} />
             </div>
         </section>);
 }

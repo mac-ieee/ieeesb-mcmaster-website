@@ -4,6 +4,7 @@ import { Button } from "@heroui/button";
 import Image from "next/image";
 import { MemberDetails } from "@/components/member-details";
 import { getStudentsByChapter } from "@/models/api/students";
+import Roster from "@/components/roster";
 
 function Header({ name }: { name: string }) {
   return (
@@ -55,9 +56,7 @@ export default async function Page({
     <h2 className="text-xl flex-1 font-bold py-3">Roster</h2>
 
     <div className="md:flex-row flex-col flex md:space-x-4 md:space-y-0 space-y-2">
-      {students.map((member, index) => (
-        <MemberDetails key={index} member={member} />
-      ))}
+      <Roster members={students} />
     </div>
 
   </section>);
