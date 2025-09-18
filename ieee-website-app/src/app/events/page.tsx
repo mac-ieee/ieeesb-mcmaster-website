@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { EventDetails } from "@/components/events-detail";
 import { getSiteEvents } from "@/models/api/events";
 

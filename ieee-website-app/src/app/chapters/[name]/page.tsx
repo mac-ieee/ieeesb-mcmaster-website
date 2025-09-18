@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { getChapterInfo } from "@/models/api/chapters";
 import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
