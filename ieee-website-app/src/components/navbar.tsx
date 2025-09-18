@@ -18,13 +18,11 @@ import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { LogoDark, LogoLight } from "@/components/icons";
-import { useUserState } from "@/state/hooks";
 
 export const Navbar = () => {
   const pathname = usePathname();
-  const { user } = useUserState();
 
-  const navItems = user ? siteConfig.navMenuItems : siteConfig.navItems;
+  const navItems = siteConfig.navItems;
   const siteIndex = navItems
     .map((value, index) => {
       return {

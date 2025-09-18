@@ -21,6 +21,14 @@ export const siteConfig = {
       href: "/services",
     },
     {
+      label: "Events",
+      href: "/events",
+    },
+    {
+      label: "Roster",
+      href: "/roster",
+    },
+    {
       label: "Contact Us",
       href: "/#contact",
     },
