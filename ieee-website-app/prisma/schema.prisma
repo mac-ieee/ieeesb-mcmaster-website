@@ -40,12 +40,14 @@ model ChapterMember {
 }
 
 model Event {
-  id          BigInt   @id @default(autoincrement())
-  name        String   @db.VarChar(255)
-  description String
-  date        DateTime @db.Date
-  chapter     BigInt
-  Chapter     Chapter  @relation(fields: [chapter], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "event_chapter_foreign")
+  id                BigInt   @id @default(autoincrement())
+  name              String   @db.VarChar(255)
+  description       String
+  date              DateTime @db.Date
+  ieee_link         String   @db.VarChar(255)
+  registration_link String?  @db.VarChar(255)
+  chapter           BigInt
+  Chapter           Chapter  @relation(fields: [chapter], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "event_chapter_foreign")
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.

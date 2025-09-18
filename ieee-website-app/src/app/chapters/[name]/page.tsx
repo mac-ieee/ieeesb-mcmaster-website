@@ -1,10 +1,10 @@
-import { getChapterInfo } from "@/config/site.chapters";
+import { getChapterInfo } from "@/models/api/chapters";
 import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
 import Image from "next/image";
-import { MemberDetails } from "@/components/member-details";
 import { getStudentsByChapter } from "@/models/api/students";
 import Roster from "@/components/roster";
+import { EventDetails } from "@/components/events-detail";
 
 function Header({ name }: { name: string }) {
   return (
@@ -59,5 +59,11 @@ export default async function Page({
       <Roster members={students} />
     </div>
 
+    <h2 className="text-xl flex-1 font-bold py-3">Events</h2>
+    <div className="md:flex-row flex-col flex md:space-x-4 md:space-y-0 space-y-2">
+      {chapter.Event.map((event, index) => (
+        <EventDetails event={event} key={index} />
+      ))}
+    </div>
   </section>);
 }

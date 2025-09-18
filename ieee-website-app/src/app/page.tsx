@@ -3,7 +3,7 @@ import { Input, Textarea } from "@heroui/input";
 import { Form } from "@heroui/form";
 import Link from "next/link";
 
-import { getSiteChapters } from "@/config/site.chapters";
+import { getSiteChapters } from "@/models/api/chapters";
 import { siteServices } from "@/config/site.services";
 import { DiscordIcon, InstagramIcon, LinkedInIcon } from "@/components/icons";
 

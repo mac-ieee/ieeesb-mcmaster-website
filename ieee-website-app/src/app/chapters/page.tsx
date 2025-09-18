@@ -2,7 +2,7 @@ import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
 import Image from "next/image";
 
-import { ChapterInfo, getSiteChapters } from "@/config/site.chapters";
+import { ChapterInfo, getSiteChapters } from "@/models/api/chapters";
 
 function Header() {
   return (

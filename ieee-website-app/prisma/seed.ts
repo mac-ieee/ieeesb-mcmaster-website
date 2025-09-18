@@ -226,9 +226,11 @@ export async function createBlogPosts(): Promise<Prisma.BlogPostCreateInput[]> {
 async function createEvents(): Promise<Prisma.EventCreateInput[]> {
     return [
         {
-            name: "Welcome to IEEE McMaster!",
+            name: "Welcome to IEEE McMaster Computer Chapter!",
             description: "Join us for an exciting event to kick off the year! Meet fellow members, learn about upcoming activities, and get involved in our vibrant community.",
             date: new Date(new Date().setMonth(new Date().getMonth() + 1)), // Set the event date to one month from now
+            ieee_link: "https://ieee.org",
+            registration_link: "https://ieee.org/register",
             Chapter: {
                 connect: {
                     id: await getChapterIdByShortName(COMPUTER)
@@ -236,9 +238,10 @@ async function createEvents(): Promise<Prisma.EventCreateInput[]> {
             }
         },
         {
-            name: "Welcome to IEEE McMaster!",
+            name: "Welcome to IEEE McMaster Power and Energy Society!",
             description: "Join us for an exciting event to kick off the year! Meet fellow members, learn about upcoming activities, and get involved in our vibrant community.",
             date: new Date(new Date().setMonth(new Date().getMonth() + 1)), // Set the event date to one month from now
+            ieee_link: "https://ieee.org",
             Chapter: {
                 connect: {
                     id: await getChapterIdByShortName(PES)
@@ -246,9 +249,11 @@ async function createEvents(): Promise<Prisma.EventCreateInput[]> {
             }
         },
         {
-            name: "Welcome to IEEE McMaster!",
+            name: "Welcome to IEEE McMaster Engineering in Medicine and Biology Society!",
             description: "Join us for an exciting event to kick off the year! Meet fellow members, learn about upcoming activities, and get involved in our vibrant community.",
             date: new Date(new Date().setMonth(new Date().getMonth() + 1)), // Set the event date to one month from now
+            ieee_link: "https://ieee.org",
+            registration_link: "https://ieee.org/register",
             Chapter: {
                 connect: {
                     id: await getChapterIdByShortName(EMBS)
