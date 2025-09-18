@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import Roster from "@/components/roster";
 import { getAllStudents } from "@/models/api/students";
 

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
 import Image from "next/image";

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { Button } from "@heroui/button";
 import { Input, Textarea } from "@heroui/input";
 import { Form } from "@heroui/form";
