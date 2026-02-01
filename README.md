@@ -4,6 +4,26 @@ Website for McMaster
 ## Test Project Locally
 Run:
 ```bash
+docker compose up postgres -d
+```
+
+then:
+```bash
+cd ieee-website-app && pnpm install
+```
+
+then:
+```bash
+npx primsma migrate dev --name init
+```
+
+then:
+```bash
+npx prisma migrate reset
+```
+
+Run:
+```bash
 docker compose up
 ```
 
