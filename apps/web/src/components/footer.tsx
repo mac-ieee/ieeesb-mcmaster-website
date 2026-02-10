@@ -9,10 +9,10 @@ export function Footer() {
                             Official Student Branch of the Institute of Electrical and Electronics Engineers at McMaster University.
                         </p>
                         <div className="flex gap-3">
-                            <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white no-underline text-xl transition-all duration-200 hover:bg-[#00629B] hover:-translate-y-0.5" aria-label="Facebook">📘</a>
-                            <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white no-underline text-xl transition-all duration-200 hover:bg-[#00629B] hover:-translate-y-0.5" aria-label="Instagram">📷</a>
-                            <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white no-underline text-xl transition-all duration-200 hover:bg-[#00629B] hover:-translate-y-0.5" aria-label="LinkedIn">💼</a>
-                            <a href="https://discord.com/channels/871533024133644299/1277755119684947988" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white no-underline text-xl transition-all duration-200 hover:bg-[#00629B] hover:-translate-y-0.5" aria-label="Discord">💬</a>
+                            <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white no-underline text-xl transition-all duration-200 hover:bg-ieee-blue hover:-translate-y-0.5" aria-label="Facebook">📘</a>
+                            <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white no-underline text-xl transition-all duration-200 hover:bg-ieee-blue hover:-translate-y-0.5" aria-label="Instagram">📷</a>
+                            <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white no-underline text-xl transition-all duration-200 hover:bg-ieee-blue hover:-translate-y-0.5" aria-label="LinkedIn">💼</a>
+                            <a href="https://discord.com/channels/871533024133644299/1277755119684947988" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white no-underline text-xl transition-all duration-200 hover:bg-ieee-blue hover:-translate-y-0.5" aria-label="Discord">💬</a>
                         </div>
                     </div>
 

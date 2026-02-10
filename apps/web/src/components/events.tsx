@@ -29,7 +29,7 @@ const events = [
 
 export function Events() {
     return (
-        <section id="events" className="py-24 px-8 max-w-7xl mx-auto">
+        <section id="events" className="py-24 px-8 max-w-7xluto">
             <div className="fade-in">
                 <SectionHeader
                     label="What's Happening"
@@ -41,7 +41,7 @@ export function Events() {
             <div className="grid grid-cols-[repeat(auto-fit,minmax(340px,1fr))] gap-6 max-md:grid-cols-1">
                 {events.map((event) => (
                     <Card key={event.title} variant="event" className="fade-in">
-                        <div className="w-full h-45 bg-linear-to-br from-[#00629B] to-[#00A3E0] flex items-center justify-center text-[3.5rem] relative overflow-hidden before:absolute before:-top-1/2 before:-left-1/2 before:w-[200%] before:h-[200%] before:bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_70%)]">
+                        <div className="w-full h-45 bg-linear-to-br from-ieee-blue to-ieee-accent flex items-center justify-center text-[3.5rem] relative overflow-hidden before:absolute before:-top-1/2 before:-left-1/2 before:w-[200%] before:h-[200%] before:bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_70%)]">
                             {event.emoji}
                         </div>
                         <div className="p-7">

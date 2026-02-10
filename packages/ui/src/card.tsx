@@ -9,14 +9,14 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 
 const variantStyles = {
   default:
-    "bg-white border-[1.5px] border-[#E7ECF0] rounded-2xl p-8 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
+    "ui:bg-white ui:border-[1.5px] ui:border-[#E7ECF0] ui:rounded-2xl ui:p-8 ui:transition-all ui:duration-300 ui:ease-[cubic-bezier(0.4,0,0.2,1)]",
   chapter:
-    "bg-white border-[1.5px] border-[#E7ECF0] rounded-2xl p-8 cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-linear-to-r before:from-[#00629B] before:to-[#00A3E0] before:scale-x-0 before:origin-left before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-[#00629B] hover:shadow-[0_12px_24px_rgba(0,0,0,0.1)] hover:-translate-y-1 hover:before:scale-x-100",
+    "ui:bg-white ui:border-[1.5px] ui:border-[#E7ECF0] ui:rounded-2xl ui:p-8 ui:cursor-pointer ui:transition-all ui:duration-300 ui:ease-[cubic-bezier(0.4,0,0.2,1)] ui:relative ui:overflow-hidden before:ui:absolute before:ui:top-0 before:ui:left-0 before:ui:right-0 before:ui:h-1 before:ui:bg-linear-to-r before:ui:from-[#00629B] before:ui:to-[#00A3E0] before:ui:scale-x-0 before:ui:origin-left before:ui:transition-transform before:ui:duration-300 before:ui:ease-[cubic-bezier(0.4,0,0.2,1)] hover:ui:border-[#00629B] hover:ui:shadow-[0_12px_24px_rgba(0,0,0,0.1)] hover:ui:-translate-y-1 hover:before:ui:scale-x-100",
   event:
-    "bg-white border-[1.5px] border-[#E7ECF0] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-[#00629B] hover:shadow-[0_12px_24px_rgba(0,0,0,0.1)] hover:-translate-y-1",
-  team: "bg-white border-[1.5px] border-[#E7ECF0] rounded-2xl p-8 text-center transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-[#00629B] hover:shadow-[0_12px_24px_rgba(0,0,0,0.1)] hover:-translate-y-1",
+    "ui:bg-white ui:border-[1.5px] ui:border-[#E7ECF0] ui:rounded-2xl ui:overflow-hidden ui:cursor-pointer ui:transition-all ui:duration-300 ui:ease-[cubic-bezier(0.4,0,0.2,1)] hover:ui:border-[#00629B] hover:ui:shadow-[0_12px_24px_rgba(0,0,0,0.1)] hover:ui:-translate-y-1",
+  team: "ui:bg-white ui:border-[1.5px] ui:border-[#E7ECF0] ui:rounded-2xl ui:p-8 ui:text-center ui:transition-all ui:duration-300 ui:ease-[cubic-bezier(0.4,0,0.2,1)] hover:ui:border-[#00629B] hover:ui:shadow-[0_12px_24px_rgba(0,0,0,0.1)] hover:ui:-translate-y-1",
   contact:
-    "bg-white border-[1.5px] border-[#E7ECF0] rounded-2xl p-7 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-[#00629B] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)]",
+    "ui:bg-white ui:border-[1.5px] ui:border-[#E7ECF0] ui:rounded-2xl ui:p-7 ui:transition-all ui:duration-300 ui:ease-[cubic-bezier(0.4,0,0.2,1)] hover:ui:border-[#00629B] hover:ui:-translate-y-0.5 hover:ui:shadow-[0_4px_12px_rgba(0,0,0,0.08)]",
 };
 
 export const Card = ({
@@ -27,7 +27,7 @@ export const Card = ({
   ...props
 }: CardProps) => {
   const hoverClass = hoverable
-    ? "hover:border-[#00629B] hover:shadow-[0_12px_24px_rgba(0,0,0,0.1)] hover:-translate-y-1"
+    ? "hover:ui:border-[#00629B] hover:ui:shadow-[0_12px_24px_rgba(0,0,0,0.1)] hover:ui:-translate-y-1"
     : "";
 
   return (
@@ -46,7 +46,7 @@ interface CardHeaderProps {
 }
 
 export const CardHeader = ({ children, className = "" }: CardHeaderProps) => (
-  <div className={`flex items-center gap-4 mb-5 ${className}`}>{children}</div>
+  <div className={`ui:flex ui:items-center ui:gap-4 ui:mb-5 ${className}`}>{children}</div>
 );
 
 interface CardIconProps {
@@ -62,12 +62,12 @@ export const CardIcon = ({
 }: CardIconProps) => {
   const sizeClass =
     variant === "contact"
-      ? "w-11 h-11 text-xl"
-      : "w-14 h-14 text-[1.75rem]";
+      ? "ui:w-11 ui:h-11 ui:text-xl"
+      : "ui:w-14 ui:h-14 ui:text-[1.75rem]";
 
   return (
     <div
-      className={`${sizeClass} bg-linear-to-br from-[#00629B] to-[#00A3E0] rounded-xl flex items-center justify-center flex-shrink-0 ${className}`}
+      className={`${sizeClass} ui:bg-linear-to-br ui:from-[#00629B] ui:to-[#00A3E0] ui:rounded-xl ui:flex ui:items-center ui:justify-center ui:flex-shrink-0 ${className}`}
     >
       {children}
     </div>
@@ -95,14 +95,14 @@ export const CardTitle = ({
   size = "md",
 }: CardTitleProps) => {
   const sizeClass = {
-    sm: "text-lg",
-    md: "text-[1.375rem]",
-    lg: "text-xl",
+    sm: "ui:text-lg",
+    md: "ui:text-[1.375rem]",
+    lg: "ui:text-xl",
   }[size];
 
   return (
     <h3
-      className={`${sizeClass} font-bold text-[#0F1419] mb-1 font-['Space_Grotesk'] ${className}`}
+      className={`${sizeClass} ui:font-bold ui:text-[#0F1419] ui:mb-1 ui:font-['Space_Grotesk'] ${className}`}
     >
       {children}
     </h3>
@@ -118,7 +118,7 @@ export const CardDescription = ({
   children,
   className = "",
 }: CardDescriptionProps) => (
-  <p className={`text-[#536471] leading-[1.7] text-[0.9375rem] ${className}`}>
+  <p className={`ui:text-[#536471] ui:leading-[1.7] ui:text-[0.9375rem] ${className}`}>
     {children}
   </p>
 );

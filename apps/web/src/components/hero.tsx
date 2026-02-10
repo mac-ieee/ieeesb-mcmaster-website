@@ -6,7 +6,7 @@ export function Hero() {
             <div className="max-w-7xl w-full mx-auto grid grid-cols-[1.1fr_0.9fr] gap-16 items-center relative z-1 max-lg:grid-cols-1 max-lg:text-center">
                 <div>
                     <h1 className="text-[4rem] font-extrabold leading-[1.1] mb-6 text-[#0F1419] tracking-[-0.03em] font-['Space_Grotesk'] max-md:text-[2.5rem]">
-                        Innovate. <span className="bg-linear-to-br from-[#00629B] to-[#00A3E0] bg-clip-text text-transparent">Connect.</span> Lead.
+                        Innovate. <span className="bg-linear-to-br from-ieee-blue to-ieee-accent bg-clip-text text-transparent">Connect.</span> Lead.
                     </h1>
                     <p className="text-xl leading-[1.7] text-[#536471] mb-10 font-normal max-w-135 max-lg:max-w-full max-md:text-[1.0625rem]">
                         The IEEE McMaster Student Branch brings together students interested in engineering, technology, and innovation through hands-on learning, professional development, and interdisciplinary collaboration.
@@ -33,8 +33,8 @@ export function Hero() {
                 </div>
                 <div className="relative h-125 flex items-center justify-center max-lg:h-100">
                     <div className="relative w-full h-full flex items-center justify-center">
-                        <div className="absolute rounded-full border-2 border-solid border-[#00629B] opacity-10 w-100 h-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-[circleFloat1_6s_ease-in-out_infinite]"></div>
-                        <div className="absolute rounded-full border-2 border-dashed border-[#00629B] opacity-[0.08] w-130 h-130 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-[circleFloat2_6s_ease-in-out_infinite]"></div>
+                        <div className="absolute rounded-full border-2 border-solid border-ieee-blue opacity-10 w-100 h-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-[circleFloat1_6s_ease-in-out_infinite]"></div>
+                        <div className="absolute rounded-full border-2 border-dashed border-ieee-blue opacity-[0.08] w-130 h-130 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-[circleFloat2_6s_ease-in-out_infinite]"></div>
                         <img
                             src="ieee-mcmaster-logo-.png"
                             alt="IEEE McMaster"

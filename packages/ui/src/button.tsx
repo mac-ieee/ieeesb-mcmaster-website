@@ -16,16 +16,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-linear-to-br from-[#4A90E2] to-[#357ABD] text-white shadow-[0_4px_12px_rgba(74,144,226,0.3)] hover:from-[#357ABD] hover:to-[#2868A8] hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(74,144,226,0.4)]",
+    "ui:bg-linear-to-br ui:from-[#4A90E2] ui:to-[#357ABD] ui:text-white ui:shadow-[0_4px_12px_rgba(74,144,226,0.3)] hover:ui:from-[#357ABD] hover:ui:to-[#2868A8] hover:ui:-translate-y-0.5 hover:ui:shadow-[0_6px_16px_rgba(74,144,226,0.4)]",
   secondary:
-    "bg-white text-[#00629B] border-[1.5px] border-[#E7ECF0] hover:border-[#00629B] hover:bg-[#F8FAFB] hover:-translate-y-0.5",
-  nav: "bg-linear-to-br from-[#4A90E2] to-[#357ABD] text-white ml-2 shadow-[0_2px_8px_rgba(74,144,226,0.3)] hover:from-[#357ABD] hover:to-[#2868A8] hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(74,144,226,0.4)]",
+    "ui:bg-white ui:text-[#00629B] ui:border-[1.5px] ui:border-[#E7ECF0] hover:ui:border-[#00629B] hover:ui:bg-[#F8FAFB] hover:ui:-translate-y-0.5",
+  nav: "ui:bg-linear-to-br ui:from-[#4A90E2] ui:to-[#357ABD] ui:text-white ui:ml-2 ui:shadow-[0_2px_8px_rgba(74,144,226,0.3)] hover:ui:from-[#357ABD] hover:ui:to-[#2868A8] hover:ui:-translate-y-px hover:ui:shadow-[0_4px_12px_rgba(74,144,226,0.4)]",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-7 py-3.5 text-[0.9375rem]",
-  lg: "px-10 py-4 text-base",
+  sm: "ui:px-4 ui:py-2 ui:text-sm",
+  md: "ui:px-7 ui:py-3.5 ui:text-[0.9375rem]",
+  lg: "ui:px-10 ui:py-4 ui:text-base",
 };
 
 export const Button = ({
@@ -38,7 +38,7 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const baseStyles =
-    "inline-flex items-center gap-2 border-0 rounded-xl font-inter font-semibold cursor-pointer transition-all duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] whitespace-nowrap";
+    "ui:inline-flex ui:items-center ui:gap-2 ui:rounded-xl ui:font-inter ui:font-semibold ui:cursor-pointer ui:transition-all ui:duration-[250ms] ui:ease-[cubic-bezier(0.4,0,0.2,1)] ui:whitespace-nowrap";
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 

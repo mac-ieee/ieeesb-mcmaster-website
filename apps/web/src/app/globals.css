@@ -1,48 +1,44 @@
 @import "tailwindcss";
-@source "../../../../packages/ui/src/";
+@import "@repo/tailwind-config/shared-styles.css";
 
-:root {
-  --ieee-blue: #00629B;
-  --ieee-light-blue: #0078B4;
-  --ieee-dark: #003C71;
-  --ieee-accent: #00A3E0;
-  --vibrant-blue: #4A90E2;
-  --vibrant-blue-dark: #357ABD;
-  --background: #FFFFFF;
-  --background-alt: #F8FAFB;
-  --text-primary: #0F1419;
-  --text-secondary: #536471;
-  --text-tertiary: #8B98A5;
-  --border: #E7ECF0;
-  --border-hover: #CFD9DE;
-}
+@layer base {
+  :root {
+    --ieee-blue: #00629B;
+    --ieee-light-blue: #0078B4;
+    --ieee-dark: #003C71;
+    --ieee-accent: #00A3E0;
+    --vibrant-blue: #4A90E2;
+    --vibrant-blue-dark: #357ABD;
+    --background: #FFFFFF;
+    --background-alt: #F8FAFB;
+    --text-primary: #0F1419;
+    --text-secondary: #536471;
+    --text-tertiary: #8B98A5;
+    --border: #E7ECF0;
+    --border-hover: #CFD9DE;
+  }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--background);
-  color: var(--text-primary);
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
 }
 
 /* Scroll animations */

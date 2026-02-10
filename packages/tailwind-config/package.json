@@ -1,0 +1,16 @@
+{
+    "name": "@repo/tailwind-config",
+    "version": "0.0.0",
+    "type": "module",
+    "private": true,
+    "style": "./shared-styles.css",
+    "exports": {
+        ".": "./shared-styles.css",
+        "./shared-styles.css": "./shared-styles.css",
+        "./postcss": "./postcss.config.js"
+    },
+    "devDependencies": {
+        "postcss": "^8",
+        "tailwindcss": "^4"
+    }
+}

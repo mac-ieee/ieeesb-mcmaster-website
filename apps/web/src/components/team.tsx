@@ -23,7 +23,7 @@ export function Team() {
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6 max-md:grid-cols-1">
                     {members.map((member) => (
                         <Card key={member.name} variant="team" className="fade-in">
-                            <div className="w-24 h-24 bg-linear-to-br from-[#00629B] to-[#00A3E0] rounded-full mx-auto mb-5 flex items-center justify-center font-['Space_Grotesk'] text-[2rem] font-bold text-white">
+                            <div className="w-24 h-24 bg-linear-to-br from-ieee-blue to-ieee-accent rounded-full mx-auto mb-5 flex items-center justify-center font-['Space_Grotesk'] text-[2rem] font-bold text-white">
                                 {member.initials}
                             </div>
                             <h3 className="text-lg font-bold mb-1.5 text-[#0F1419] font-['Space_Grotesk']">{member.name}</h3>

@@ -12,17 +12,17 @@ interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
 
 const variantStyles: Record<BadgeVariant, string> = {
     default:
-        "bg-[rgba(0,98,155,0.08)] text-[#00629B] font-semibold rounded-full",
+        "ui:bg-[rgba(0,98,155,0.08)] ui:text-[#00629B] ui:font-semibold ui:rounded-full",
     section:
-        "bg-[rgba(0,98,155,0.08)] text-[#00629B] font-semibold rounded-full uppercase tracking-[0.1em]",
-    date: "bg-[rgba(0,98,155,0.08)] text-[#00629B] font-bold rounded-full uppercase tracking-[0.05em]",
-    role: "text-[#00629B] font-semibold uppercase tracking-[0.05em]",
+        "ui:bg-[rgba(0,98,155,0.08)] ui:text-[#00629B] ui:font-semibold ui:rounded-full ui:uppercase ui:tracking-[0.1em]",
+    date: "ui:bg-[rgba(0,98,155,0.08)] ui:text-[#00629B] ui:font-bold ui:rounded-full ui:uppercase ui:tracking-[0.05em]",
+    role: "ui:text-[#00629B] ui:font-semibold ui:uppercase ui:tracking-[0.05em]",
 };
 
 const sizeStyles: Record<BadgeSize, string> = {
-    sm: "text-[0.75rem] px-3 py-1.5",
-    md: "text-[0.8125rem] px-3.5 py-1.5",
-    lg: "text-sm px-4 py-2",
+    sm: "ui:text-[0.75rem] ui:px-3 ui:py-1.5",
+    md: "ui:text-[0.8125rem] ui:px-3.5 ui:py-1.5",
+    lg: "ui:text-sm ui:px-4 ui:py-2",
 };
 
 export const Badge = ({
@@ -32,7 +32,7 @@ export const Badge = ({
     className = "",
     ...props
 }: BadgeProps) => {
-    const baseStyles = "inline-block";
+    const baseStyles = "ui:inline-block";
 
     return (
         <div
@@ -54,7 +54,7 @@ export const SectionLabel = ({
     className = "",
 }: SectionLabelProps) => (
     <div
-        className={`inline-block text-[0.8125rem] font-semibold text-[#00629B] uppercase tracking-[0.1em] mb-4 px-3.5 py-1.5 bg-[rgba(0,98,155,0.08)] rounded-full ${className}`}
+        className={`ui:inline-block ui:text-[0.8125rem] ui:font-semibold ui:text-[#00629B] ui:uppercase ui:tracking-[0.1em] ui:mb-4 ui:px-3.5 ui:py-1.5 ui:bg-[rgba(0,98,155,0.08)] ui:rounded-full ${className}`}
     >
         {children}
     </div>
@@ -73,13 +73,13 @@ export const SectionHeader = ({
     subtitle,
     className = "",
 }: SectionHeaderProps) => (
-    <div className={`text-center mb-16 ${className}`}>
+    <div className={`ui:text-center ui:mb-16 ${className}`}>
         {label && <SectionLabel>{label}</SectionLabel>}
-        <h2 className="text-5xl font-extrabold mb-4 text-[#0F1419] tracking-[-0.02em] font-['Space_Grotesk']">
+        <h2 className="ui:text-5xl ui:font-extrabold ui:mb-4 ui:text-[#0F1419] ui:tracking-[-0.02em] ui:font-['Space_Grotesk']">
             {title}
         </h2>
         {subtitle && (
-            <p className="text-lg text-[#536471] max-w-[640px] mx-auto leading-[1.7]">
+            <p className="ui:text-lg ui:text-[#536471] ui:max-w-[640px] ui:mx-auto ui:leading-[1.7]">
                 {subtitle}
             </p>
         )}
