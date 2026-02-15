@@ -20,6 +20,9 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "IEEE McMaster Student Branch | Engineering Excellence & Innovation",
   description: "Supporting technical and professional growth at McMaster University through hands-on learning and industry engagement.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
