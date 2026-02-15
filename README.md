@@ -1,74 +1,61 @@
-# ieeesb-mcmaster-website
-Website for McMaster
+# IEEE McMaster Student Branch Website
 
-## Test Project Locally
-Run:
-```bash
-docker compose up postgres -d
+The official website for the IEEE McMaster Student Branch, built with [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/).
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) >= 18
+- [pnpm](https://pnpm.io/) 9+
+
+### Development
+
+```sh
+pnpm install
+pnpm dev
 ```
 
-then:
-```bash
-cd ieee-website-app && pnpm install
+### Build
+
+```sh
+pnpm build
 ```
 
-then:
-```bash
-npx primsma migrate dev --name init
+### Start
+
+```sh
+pnpm start
 ```
 
-then:
-```bash
-npx prisma migrate reset
+## Project Structure
+
+```
+src/
+  app/           # Next.js App Router pages and layouts
+  components/    # React components
+    ui/          # Reusable UI primitives (Badge, Button, Card)
+    about.tsx    # About section
+    chapters.tsx # Chapters section
+    contact.tsx  # Contact section
+    events.tsx   # Events section
+    footer.tsx   # Footer
+    header.tsx   # Header with navigation
+    hero.tsx     # Hero section
+    smooth-scroll.tsx  # Smooth scrolling & fade-in animations
+    team.tsx     # Team section
+  hooks/         # Custom React hooks
+public/          # Static assets
 ```
 
-Run:
-```bash
-docker compose up
-```
+## How to edit things
 
-## Simulate Production Environment
-To simulate the production environment locally (note this requires kubernetes installed as well as a kubernetes service provider)
-You need to do the following steps
-1. Create a Github PAT token (project settings, under development settings, tokens, create classic token, read:package permission only enabled)
-2. Run the following kubernetes commands in the root of the project (ensure that both loadbalancing and storage is enabled on microk8s if using that)
+If you wish to change something in the website (like add an event or update your profile). Make sure to add your changes in the data file and run the items locally to see if its changed. If so add your changes in a new branch and make a PR so that we can review it.
 
-```bash
-kubectl create secret docker-registry ghcr-secret \
-  --docker-server=ghcr.io \
-  --docker-username=${Github user name} \
-  --docker-password=${Github personal access token} \
-  --docker-email=${Github email}
-kubectl apply -f=postgres.dev.volumes.yaml -f=postgres.dev.yaml -f=webapp.yaml
-```
+## Tech Stack
 
-If the image has changed due to someone merging branches with main, Run the following:
-
-```bash
-kubectl delete -f=webapp.yaml
-kubectl apply -f=webapp.yaml
-```
-
-If you want to clean postgres as well then
-```bash
-kubectl delete -f=postgres.dev.yaml
-kubectl apply -f=postgres.dev.yaml
-```
-
-## Production
-
-### Setup Kubernetes Environment on production
-
-To setup the environment on production, run the following command in the machine. For now, we are not using persistent volumes and pvcs for production since I had trouble setting it up and syncing it, but that is something I'll look into when the PI's are online again.
-
-```bash
-kubectl apply -f=postgres.yaml -f=webapp.yaml
-```
-
-### When a feature has been added to main (via merging)
-
-Since all builds are automated on the main branch with Github Actions, it will generate a docker image in Github Packages. Everytime this occurs, you would need to SSH into the PIs and perform the following commands:
-```bash
-kubectl delete -f=webapp.yaml
-kubectl apply -f=webapp.yaml
-```
+- [Next.js](https://nextjs.org/) 16 with App Router
+- [React](https://react.dev/) 19
+- [Tailwind CSS](https://tailwindcss.com/) 4
+- [TypeScript](https://www.typescriptlang.org/)
+- [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/) for code quality

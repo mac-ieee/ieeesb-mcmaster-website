@@ -37,8 +37,8 @@ jobs:
         id: push
         uses: docker/build-push-action@v5
         with:
-          context: ./ieee-website-app
-          file: ./dockerfiles/frontend.prod.dockerfile
+          context: .
+          file: ./Dockerfile
           platforms: linux/arm64  # Specify ARM64 for Raspberry Pi
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           push: true
