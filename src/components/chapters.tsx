@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardIcon, CardTitle, CardDescription } from "@/components/ui/card";
 import { SectionHeader, Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { chapters } from "@/data/chapter";
 
 export function Chapters() {
     return (
@@ -15,50 +15,20 @@ export function Chapters() {
                 </div>
 
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(340px,1fr))] gap-6">
-                    <Card variant="chapter" className="fade-in">
-                        <CardHeader>
-                            <CardIcon>💻</CardIcon>
-                            <div>
-                                <CardTitle>Computer Chapter</CardTitle>
-                                <Badge variant="role" size="sm" className="text-[0.8125rem]">
-                                    IEEE Computer Society
-                                </Badge>
-                            </div>
-                        </CardHeader>
-                        <CardDescription>
-                            The Computer Chapter is all about turning electronics into real-world solutions. Its focus is on embedded software and PCB circuit design. Whether it's crafting with Arduino, innovating with Raspberry Pi, or applying tech across industries, IEEE Computer Society is at the forefront of making electronics work smarter. Members gain hands-on experience through projects that directly apply to industry.
-                        </CardDescription>
-                    </Card>
-
-                    <Card variant="chapter" className="fade-in">
-                        <CardHeader>
-                            <CardIcon>⚡</CardIcon>
-                            <div>
-                                <CardTitle>PES Chapter</CardTitle>
-                                <Badge variant="role" size="sm" className="text-[0.8125rem]">
-                                    Power and Energy Society
-                                </Badge>
-                            </div>
-                        </CardHeader>
-                        <CardDescription>
-                            The PES Chapter focuses on power electronics, with topics like energy transmission and conversion. Members explore power generation, electrical infrastructure, renewable energy, and related fields such as radio frequency (RF), control systems, and analog system design through technical discussions and hands-on learning.
-                        </CardDescription>
-                    </Card>
-
-                    <Card variant="chapter" className="fade-in">
-                        <CardHeader>
-                            <CardIcon>🏥</CardIcon>
-                            <div>
-                                <CardTitle>EMBS Chapter</CardTitle>
-                                <Badge variant="role" size="sm" className="text-[0.8125rem]">
-                                    Engineering in Medicine & Biology
-                                </Badge>
-                            </div>
-                        </CardHeader>
-                        <CardDescription>
-                            The EMBS Chapter explores the potential of computer and electrical engineering to fill the gaps in healthcare and medicine. Active research projects include AI medical devices, wearable cuffless blood pressure monitors, and more. Members gain hands-on experience in therapeutics, neural engineering, bioinformatics, and related fields.
-                        </CardDescription>
-                    </Card>
+                    {chapters.map((chapter) => (
+                        <Card key={chapter.title} variant="chapter" className="fade-in">
+                            <CardHeader>
+                                <CardIcon>{chapter.icon}</CardIcon>
+                                <div>
+                                    <CardTitle>{chapter.title}</CardTitle>
+                                    <Badge variant="role" size="sm" className="text-[0.8125rem]">
+                                        {chapter.name}
+                                    </Badge>
+                                </div>
+                            </CardHeader>
+                            <CardDescription>{chapter.description}</CardDescription>
+                        </Card>
+                    ))}
                 </div>
 
                 <div className="bg-linear-to-br from-[#4752C4] via-[#5865F2] to-[#7289DA] rounded-[20px] p-16 text-center mt-12 shadow-[0_20px_60px_rgba(71,82,196,0.4)] relative overflow-hidden border border-white/15 fade-in before:absolute before:inset-0 before:bg-[radial-gradient(circle,rgba(255,255,255,0.2)_0%,transparent_60%)] before:animate-[rotateGlow_15s_linear_infinite] after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_15%_25%,rgba(114,137,218,0.3)_0%,transparent_50%),radial-gradient(circle_at_85%_75%,rgba(88,101,242,0.3)_0%,transparent_50%),radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05)_0%,transparent_70%)] after:pointer-events-none after:animate-[pulse_8s_ease-in-out_infinite]">

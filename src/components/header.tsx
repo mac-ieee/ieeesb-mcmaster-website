@@ -3,7 +3,7 @@
 import { useScrollSpy, useHeaderScroll } from "@/hooks/useScrollSpy";
 
 export function Header() {
-    const activeSection = useScrollSpy(['about', 'chapters', 'events', 'team', 'contact'], 100);
+    const activeSection = useScrollSpy(['about', 'chapters', 'events', 'services', 'team', 'contact'], 100);
     const isScrolled = useHeaderScroll(50);
 
     const navLinkClass = (section: string) => {
@@ -35,6 +35,7 @@ export function Header() {
                     <li><a href="#about" className={navLinkClass('about')}>About</a></li>
                     <li><a href="#chapters" className={navLinkClass('chapters')}>Chapters</a></li>
                     <li><a href="#events" className={navLinkClass('events')}>Events</a></li>
+                    <li><a href="#services" className={navLinkClass('services')}>Services</a></li>
                     <li><a href="#team" className={navLinkClass('team')}>Team</a></li>
                     <li><a href="#contact" className={navLinkClass('contact')}>Contact</a></li>
                     <li>
