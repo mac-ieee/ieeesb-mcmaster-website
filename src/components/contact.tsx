@@ -13,49 +13,7 @@ export function Contact() {
                 />
             </div>
 
-            <div className="grid grid-cols-2 gap-12 items-start max-lg:grid-cols-1">
-                <Card className="fade-in p-10">
-                    <form>
-                        <div className="mb-6">
-                            <label htmlFor="name" className="block mb-2 font-semibold text-[#0F1419] text-[0.9375rem]">
-                                Name
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                className="w-full py-3.5 px-4 bg-[#F8FAFB] border-[1.5px] border-[#E7ECF0] rounded-lg text-[#0F1419] font-['Inter'] text-[0.9375rem] transition-all duration-200 focus:outline-none focus:border-ieee-blue focus:bg-white focus:shadow-[0_0_0_3px_rgba(0,98,155,0.1)]"
-                            />
-                        </div>
-                        <div className="mb-6">
-                            <label htmlFor="email" className="block mb-2 font-semibold text-[#0F1419] text-[0.9375rem]">
-                                Email
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                className="w-full py-3.5 px-4 bg-[#F8FAFB] border-[1.5px] border-[#E7ECF0] rounded-lg text-[#0F1419] font-['Inter'] text-[0.9375rem] transition-all duration-200 focus:outline-none focus:border-ieee-blue focus:bg-white focus:shadow-[0_0_0_3px_rgba(0,98,155,0.1)]"
-                            />
-                        </div>
-                        <div className="mb-6">
-                            <label htmlFor="message" className="block mb-2 font-semibold text-[#0F1419] text-[0.9375rem]">
-                                Message
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                required
-                                className="w-full py-3.5 px-4 bg-[#F8FAFB] border-[1.5px] border-[#E7ECF0] rounded-lg text-[#0F1419] font-['Inter'] text-[0.9375rem] min-h-35 resize-y transition-all duration-200 focus:outline-none focus:border-ieee-blue focus:bg-white focus:shadow-[0_0_0_3px_rgba(0,98,155,0.1)]"
-                            />
-                        </div>
-                        <Button variant="primary" className="w-full justify-center" type="submit">
-                            Send Message
-                        </Button>
-                    </form>
-                </Card>
+            <div className="grid grid-cols-1 gap-12 items-center max-lg:grid-cols-1">
 
                 <div className="grid gap-6 fade-in">
                     <Card variant="contact">
