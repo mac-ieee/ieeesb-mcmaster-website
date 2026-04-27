@@ -4,7 +4,7 @@ about: The purpose of this issue is to tell the developers to add a member of th
   IEEE club into the developer contact page.
 title: Add a Member Request
 labels: good first issue
-assignees: ''
+assignees: []
 type: Task
 body:
   - type: markdown
