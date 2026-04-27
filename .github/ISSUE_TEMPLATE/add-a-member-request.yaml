@@ -1,0 +1,45 @@
+
+name: Add a Member Request
+about: The purpose of this issue is to tell the developers to add a member of the
+  IEEE club into the developer contact page.
+title: Add a Member Request
+labels: good first issue
+assignees: ''
+type: Task
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You will need to add information of the following:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: ex. John Doe
+    validations:
+      required: true
+  - type: input
+    id: macId
+    attributes:
+      label: Mac ID
+      placeholder: ex. johndoe@mcmaster.ca
+    validations:
+      required: true
+  - type: input
+    id: yearOfEntry
+    attributes:
+      label: Year of Entry in McMaster
+    validations:
+      required: true
+  - type: input
+    id: graduationYear
+    attributes:
+      label: Expected Graduation Year and Month in McMaster
+    validations:
+      required: false
+  - type: input
+    id: roles
+    attributes:
+      label: Roles at IEEE McMaster Student Club
+    validations:
+      required: true
