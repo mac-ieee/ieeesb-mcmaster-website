@@ -9,18 +9,23 @@ export const services: Service[] = [
         icon: "🔧",
         title: "Hardware Rental",
         description:
-            "Borrow development boards, sensors, and other electronics equipment for your projects. Available to all IEEE McMaster members at no extra cost.",
+            `Every engineer needs a computer these days. That is why the IEEE McMaster Student Branch provides Raspberry Pi 5 and Arduino UNO R4 Wi-Fi for rentals. The rentals are refundable upon succesful return and quality control check of all equipment (including ALL packaging).
+The following rental prices are:
+- Raspberry Pi 5 + Power Supply + SD Card: $100
+- Arduino UNO R4 Wi-Fi + Power Supply: $50`,
     },
     {
         icon: "🔌",
         title: "Soldering Stations",
         description:
-            "Access our fully equipped soldering workstations in the IEEE Lab. Whether you're a beginner or experienced, our tools and guidance are available to help you build.",
+            "The IEEE McMaster Student Branch provides the highest quality soldering irons sponsored by HAKKO Corporation. A reflow oven is also available for SMT. Basic tools such as microscopes, solder wicks, isopropanol, and high quality lead-free solder is provided. A soldering haven for your soldering needs!",
     },
     {
         icon: "📦",
         title: "DigiKey Parts",
         description:
-            "Need specific electronic components? IEEE McMaster members can request parts through our DigiKey account for academic and club projects.",
+            `We provide a plethora of components ready at your disposal in our office and on the house! Just please be reasonable with how much you take... we don't have unlimited funds.
+
+Can't find the part you're looking for? We provide Digikey orders with free shipping! Place an order with us and get 10% off on most components!`,
     },
 ]
