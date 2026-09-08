@@ -1,17 +1,13 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: ieee
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ieeesb-mcmaster-website
-  namespace: ieee
+  namespace: ieee-namespace
   labels:
     app: ieeesb-mcmaster-website
 spec:
-  replicas: 2
+  replicas: 6
   selector:
     matchLabels:
       app: ieeesb-mcmaster-website
@@ -51,7 +47,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ieeesb-mcmaster-website
-  namespace: ieee
+  namespace: ieee-namespace
   labels:
     app: ieeesb-mcmaster-website
 spec:
@@ -67,7 +63,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ieeesb-mcmaster-website
-  namespace: ieee
+  namespace: ieee-namespace
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "10m"
 spec:
