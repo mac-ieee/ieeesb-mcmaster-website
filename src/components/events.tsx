@@ -9,7 +9,7 @@ export function Events() {
                 <SectionHeader
                     label="What's Happening"
                     title="Upcoming Events"
-                    subtitle="Technical workshops and hands-on learning opportunities for IEEE McMaster members."
+                    subtitle="Wanna see what we're up to? You can find all of our upcoming and past events here!"
                 />
             </div>
 
